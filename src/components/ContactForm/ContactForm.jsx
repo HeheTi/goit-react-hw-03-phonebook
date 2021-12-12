@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import Input from '../../common/Input';
-import s from '../ContactList/ContactList.module.css';
+import s from './ContactForm.module.css';
 
 class ContactForm extends Component {
   state = {
@@ -33,7 +33,7 @@ class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.onSubFormData} className="form">
+      <form onSubmit={this.onSubFormData} className={s.form}>
         <Input
           label="Name"
           type="text"
@@ -56,7 +56,10 @@ class ContactForm extends Component {
           required
         />
 
-        <button type="submit"> Add contact</button>
+        <button type="submit" className={s.btnAdd}>
+          {' '}
+          Add contact
+        </button>
       </form>
     );
   }

@@ -87,12 +87,11 @@ class App extends Component {
         {contacts.length > 1 && (
           <Filter onChangeDate={this.addDataApp} value={filter} />
         )}
-
+        {!contacts.length && <p>Please, add contact!</p>}
         {!!contacts.length && (
           <ContactList
             normalizeName={this.normalizeName}
             onClickBtnDel={this.deleteContact}
-            onClickBtnChange={this.changeFormAndDate}
             filterContacts={this.filterContacts}
             filterName={filter}
           />

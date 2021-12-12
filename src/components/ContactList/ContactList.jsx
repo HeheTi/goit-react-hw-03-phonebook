@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import ItemContact from './ItemContact';
+import s from './ContactList.module.css';
 
 const ContactList = props => {
   const {
@@ -10,7 +11,7 @@ const ContactList = props => {
     normalizeName,
   } = props;
   return (
-    <ul className="list">
+    <ul className={s.list}>
       {filterContacts(filterName).map(({ id, name, number }) => {
         return (
           <ItemContact

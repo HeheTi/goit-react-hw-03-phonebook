@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
+import s from './ItemContact.module.css';
 
 const ItemContact = ({ name, number, onClickBtnDel, id, normalizeName }) => {
   return (
-    <li className="item" id={id}>
+    <li className={s.item} id={id}>
       {normalizeName(name)}: {number}
-      <button onClick={() => onClickBtnDel(id)} type="button">
+      <button
+        className={s.btnDel}
+        onClick={() => onClickBtnDel(id)}
+        type="button"
+      >
         Delete
       </button>
     </li>

@@ -1,13 +1,16 @@
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import s from './Input.module.css';
 
 const Input = ({ label, ...arg }) => {
   const id = nanoid();
 
   return (
-    <div className="wrapper-input">
-      <label htmlFor={id}>{label}</label>
-      <input id={id} {...arg} />
+    <div className={s.wrapperInput}>
+      <label className={s.labelTitle} htmlFor={id}>
+        {label}:
+      </label>
+      <input className={s.input} id={id} {...arg} />
     </div>
   );
 };
