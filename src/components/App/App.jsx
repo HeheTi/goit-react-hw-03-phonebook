@@ -62,14 +62,18 @@ class App extends Component {
   deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(item => item.id !== id),
+      filter: '',
     }));
   };
 
+  resetFilter = () => this.setState({ filter: '' });
+
   filterContacts = filterName => {
     const normalizedData = filterName.toLowerCase();
-    return this.state.contacts.filter(({ name }) =>
+    const arrayFilter = this.state.contacts.filter(({ name }) =>
       name.toLowerCase().includes(normalizedData),
     );
+    return arrayFilter;
   };
 
   render() {
@@ -85,7 +89,10 @@ class App extends Component {
 
         <h2>Contacts</h2>
         {contacts.length > 1 && (
-          <Filter onChangeDate={this.addDataApp} value={filter} />
+          <Filter
+            onChangeDate={this.addDataApp}
+            value={contacts.length < 1 ? '' : filter}
+          />
         )}
         {!contacts.length && <p>Please, add contact!</p>}
         {!!contacts.length && (
